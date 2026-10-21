@@ -10,7 +10,6 @@ import com.microsoft.playwright.options.SelectOption;
 import com.microsoft.playwright.options.WaitForSelectorState;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -190,9 +189,9 @@ public class ReusableComponents {
         }
     }
 
-    public String excel2(String excelSheet, int rowNum, int colNum) throws IOException {
+    public String[] readExcel(String excelSheet, int rowNum, int colNum) throws IOException {
         {
-            String result = null;
+            String[] result = null;
             DataFormatter formatter = new DataFormatter();
             FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "/TestData/executeTestData.xlsx");
             XSSFWorkbook workbook = new XSSFWorkbook(fis);
@@ -211,7 +210,7 @@ public class ReusableComponents {
                                 while (cell.hasNext()) {
                                     int CellNum = cell.next().getColumnIndex();
                                     if (CellNum == colNum) {
-                                        String value = formatter.formatCellValue(row.getCell(colNum));
+                                        String[] value = new String[]{formatter.formatCellValue(row.getCell(colNum))};
                                         result = value;
                                     }
                                 }

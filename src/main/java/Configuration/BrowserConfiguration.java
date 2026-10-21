@@ -58,7 +58,6 @@ public class BrowserConfiguration extends DatabaseConfiguration {
             playwright.close();
             System.out.println("Session is closed");
 
-            executeQuery();
         } else {
             System.out.println("Page is null, cannot close the browser.");
         }
