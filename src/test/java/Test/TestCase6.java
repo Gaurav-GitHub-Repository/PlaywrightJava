@@ -31,6 +31,15 @@ public class TestCase6 extends BrowserConfiguration {
                 if (value[i].equalsIgnoreCase("Login")) {
                     Login login = new Login(page);
                     login.verifyLogin("Test1235@gmail.com", "Test@1234");
+                } else if (value[i].equalsIgnoreCase("FeaturedEvent")) {
+                    Dashboard dashboard = new Dashboard(page);
+                    dashboard.verifyFeaturedEvent();
+                } else if (value[i].equalsIgnoreCase("ConfirmBooking")) {
+                    Dashboard2 dashboard2 = new Dashboard2(page);
+                    dashboard2.confirmBooking(4, "Pathange Gaurav", "gaurav.pathange233334@gmail.com", "8612344567");
+                } else if (value[i].equalsIgnoreCase("CancelBooking")) {
+                    Dashboard3 dashboard3 = new Dashboard3(page);
+                    dashboard3.verifyCancelBooking();
                 } else if (value[i].equalsIgnoreCase("Logout")) {
                     Logout logout = new Logout(page);
                     logout.verifyLogout();
@@ -40,7 +49,6 @@ public class TestCase6 extends BrowserConfiguration {
             }
             break;
         }
-
     }
 
 }
